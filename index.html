@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gerardo Rossel — PhD · Data Science · Taekwon-Do</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── VARIABLES ─────────────────────────────────────────── */
+    :root {
+      --ink:      #1a1a1a;
+      --paper:    #f5f0e8;
+      --cream:    #ede8dc;
+      --red:      #8b1a1a;
+      --red-lt:   #c0392b;
+      --gold:     #b8952a;
+      --muted:    #6b6457;
+      --rule:     #c8bfaa;
+    }
+
+    /* ── RESET & BASE ───────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    h1,h2,h3,h4 {
+      font-family: 'Cormorant Garamond', serif;
+      line-height: 1.2;
+    }
+
+    a { color: var(--red); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── NAV ────────────────────────────────────────────────── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--ink);
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 0.75rem 1rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    nav a {
+      color: var(--rule);
+      transition: color .2s;
+    }
+    nav a:hover { color: #fff; text-decoration: none; }
+
+    /* ── HERO ───────────────────────────────────────────────── */
+    #hero {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: end;
+      gap: 3rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 5rem 2rem 3rem;
+    }
+
+    .hero-text h1 {
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+    }
+
+    .hero-text h1 span { color: var(--red); }
+
+    .hero-tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-style: italic;
+      color: var(--muted);
+      margin: 0.5rem 0 1.5rem;
+    }
+
+    .hero-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .pill {
+      background: var(--cream);
+      border: 1px solid var(--rule);
+      border-radius: 2px;
+      padding: 0.25rem 0.75rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    .pill.red { background: var(--red); color: #fff; border-color: var(--red); }
+
+    .hero-contact {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.9;
+    }
+
+    .hero-contact a { color: var(--red); }
+
+    .hero-photo {
+      width: 280px;
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    .hero-photo img {
+      width: 100%;
+      display: block;
+      /* The photo already has transparent bg */
+      filter: drop-shadow(4px 8px 20px rgba(0,0,0,0.18));
+    }
+
+    /* ── DIVIDER ────────────────────────────────────────────── */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--rule);
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    /* ── SECTION WRAPPER ────────────────────────────────────── */
+    .section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+
+    .section-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 600;
+      margin-bottom: 2.5rem;
+      color: var(--ink);
+    }
+
+    /* ── TWO-COL LAYOUT ─────────────────────────────────────── */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+    }
+
+    @media(max-width:700px){
+      .two-col { grid-template-columns: 1fr; gap: 2rem; }
+    }
+
+    /* ── TIMELINE ───────────────────────────────────────────── */
+    .timeline { list-style: none; }
+
+    .timeline li {
+      position: relative;
+      padding: 0 0 2rem 1.5rem;
+      border-left: 2px solid var(--rule);
+    }
+
+    .timeline li::before {
+      content: '';
+      position: absolute;
+      left: -5px;
+      top: 6px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--red);
+    }
+
+    .timeline li:last-child { padding-bottom: 0; border-left-color: transparent; }
+
+    .tl-year {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .tl-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .tl-place {
+      font-size: 0.85rem;
+      color: var(--red);
+      margin-bottom: 0.3rem;
+    }
+
+    .tl-desc {
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    /* ── PUBLICATIONS ───────────────────────────────────────── */
+    .pub-list { list-style: none; }
+
+    .pub-list li {
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--rule);
+      font-size: 0.88rem;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    .pub-list li strong { color: var(--ink); }
+
+    /* ── TAEKWONDO ──────────────────────────────────────────── */
+    #taekwondo { background: var(--cream); }
+    #taekwondo .section { /* inherits max-width */ }
+
+    .tkd-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .tkd-card {
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-top: 3px solid var(--red);
+      padding: 1.5rem;
+    }
+
+    .tkd-card h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--red);
+    }
+
+    .tkd-card p {
+      font-size: 0.86rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .tkd-card .big {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--ink);
+      display: block;
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+
+    /* championships table */
+    .champ-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+      margin-top: 1rem;
+    }
+
+    .champ-table th {
+      text-align: left;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding: 0.5rem 0.75rem;
+      border-bottom: 2px solid var(--rule);
+    }
+
+    .champ-table td {
+      padding: 0.55rem 0.75rem;
+      border-bottom: 1px solid var(--rule);
+      color: var(--ink);
+    }
+
+    .champ-table tr:hover td { background: rgba(139,26,26,0.04); }
+
+    .badge {
+      display: inline-block;
+      background: var(--red);
+      color: #fff;
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.15rem 0.5rem;
+      border-radius: 2px;
+      margin-left: 0.4rem;
+    }
+
+    /* ── INDUSTRY ───────────────────────────────────────────── */
+    .client-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .client-tag {
+      background: var(--cream);
+      border: 1px solid var(--rule);
+      padding: 0.3rem 0.8rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+      border-radius: 2px;
+    }
+
+    /* ── QUOTE BLOCK ────────────────────────────────────────── */
+    blockquote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-style: italic;
+      color: var(--ink);
+      border-left: 3px solid var(--gold);
+      padding-left: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    /* ── CONTACT ────────────────────────────────────────────── */
+    #contacto { background: var(--ink); color: var(--paper); }
+    #contacto .section-label { color: var(--gold); }
+    #contacto .section-title { color: #fff; }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+
+    .contact-item h4 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--rule);
+      margin-bottom: 0.4rem;
+    }
+
+    .contact-item a, .contact-item p {
+      color: var(--paper);
+      font-size: 0.95rem;
+    }
+
+    .contact-item a:hover { color: var(--gold); text-decoration: none; }
+
+    footer {
+      background: var(--ink);
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-top: 1px solid #333;
+    }
+
+    /* ── ANIMATIONS ─────────────────────────────────────────── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ── RESPONSIVE ─────────────────────────────────────────── */
+    @media(max-width:750px){
+      #hero {
+        grid-template-columns: 1fr;
+        padding-top: 3rem;
+      }
+      .hero-photo { width: 220px; margin: 0 auto; }
+      nav { gap: 1rem; flex-wrap: wrap; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#sobre-mi">Sobre mí</a>
+    <a href="#experiencia">Experiencia</a>
+    <a href="#academico">Académico</a>
+    <a href="#taekwondo">Taekwon-Do</a>
+    <a href="#publicaciones">Publicaciones</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+
+  <!-- HERO -->
+  <section id="sobre-mi">
+    <div id="hero">
+      <div class="hero-text fade-in">
+        <p class="section-label">PhD · Data Scientist · Árbitro Internacional ITF</p>
+        <h1>Gerardo<br/><span>Rossel</span></h1>
+        <p class="hero-tagline">"Nada humano me es ajeno."</p>
+
+        <div class="hero-pills">
+          <span class="pill red">VI Dan ITF</span>
+          <span class="pill">Ciencia de Datos</span>
+          <span class="pill">Inteligencia Artificial</span>
+          <span class="pill">Bases de Datos</span>
+          <span class="pill">Ingeniería de Software</span>
+          <span class="pill">Marketing Digital</span>
+        </div>
+
+        <p style="font-size:0.95rem; color:var(--muted); max-width:540px; margin-bottom:1.2rem;">
+          Doctor en Epistemología e Historia de la Ciencia y Licenciado en Ciencias de la Computación
+          (UBA). Más de tres décadas combinando tecnología, investigación académica y una pasión
+          inquebrantable por el Taekwon-Do ITF, que practica desde 1975 junto a toda su familia.
+        </p>
+
+        <div class="hero-contact">
+          <div>📧 <a href="mailto:gerardo.rossel@gmail.com">gerardo.rossel@gmail.com</a></div>
+          <div>📞 054-11-44236439</div>
+          <div>🌐 <a href="http://www.gerardorossel.org/" target="_blank">gerardorossel.org</a></div>
+          <div>📸 <a href="https://www.instagram.com/gerardo.rossel" target="_blank">@gerardo.rossel</a></div>
+        </div>
+      </div>
+
+      <div class="hero-photo fade-in" style="transition-delay:.15s">
+        <!-- 
+          FOTO: coloca el archivo GRossel2.png en la misma carpeta que este index.html
+          Si usás GitHub Pages, simplemente subí ambos archivos al repo.
+        -->
+        <img src="GRossel2.png" alt="Gerardo Rossel" />
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- EXPERIENCIA -->
+  <section id="experiencia">
+    <div class="section fade-in">
+      <p class="section-label">Trayectoria</p>
+      <h2 class="section-title">Experiencia Profesional</h2>
+
+      <div class="two-col">
+        <div>
+          <ul class="timeline">
+            <li>
+              <span class="tl-year">1992 – Actualmente</span>
+              <div class="tl-title">CEO — UpperSoft Ingeniería de Software</div>
+              <div class="tl-place">Martínez, Buenos Aires</div>
+              <div class="tl-desc">Dirección de proyectos de alta complejidad, consultoría tecnológica, implementación de nuevas arquitecturas y metodologías.</div>
+            </li>
+            <li>
+              <span class="tl-year">2020 – 2023</span>
+              <div class="tl-title">Director de TIC (CIO)</div>
+              <div class="tl-place">Ministerio de Agricultura, Ganadería y Pesca — Argentina</div>
+              <div class="tl-desc">Liderazgo integral de la infraestructura tecnológica y equipos de desarrollo a nivel nacional.</div>
+            </li>
+            <li>
+              <span class="tl-year">Actualmente</span>
+              <div class="tl-title">Asesor de Gabinete</div>
+              <div class="tl-place">Secretaría de Mercados Agropecuarios — Ministerio de Economía</div>
+              <div class="tl-desc">Asesoramiento en políticas económicas y estrategia de datos.</div>
+            </li>
+            <li>
+              <span class="tl-year">2017 – Actualmente</span>
+              <div class="tl-title">Consultor Profesional Independiente</div>
+              <div class="tl-place">Unipase S.A. — Vicente López, Bs.As.</div>
+              <div class="tl-desc">Auditoría sobre datos, interoperatividad con autopistas, inteligencia de datos y desarrollo de software de administración de dispositivos.</div>
+            </li>
+            <li>
+              <span class="tl-year">2016 – Actualmente</span>
+              <div class="tl-title">Consultor — Desarrollo de Software</div>
+              <div class="tl-place">Fundación Sadosky (I+D en TIC) — CABA</div>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.3rem; margin-bottom:1rem; color:var(--muted);">Algunos clientes</h3>
+          <div class="client-strip">
+            <span class="client-tag">Bank of America</span>
+            <span class="client-tag">L'Oréal</span>
+            <span class="client-tag">McAfee</span>
+            <span class="client-tag">Grupo Clarín</span>
+            <span class="client-tag">Siderca S.A.I.</span>
+            <span class="client-tag">Isenbeck</span>
+            <span class="client-tag">Wise Architect USA</span>
+            <span class="client-tag">Atomlux SRL</span>
+            <span class="client-tag">Binarea España</span>
+          </div>
+
+          <blockquote style="margin-top:2.5rem;">
+            La tecnología y el arte marcial comparten una misma raíz: la disciplina de perfeccionar cada detalle.
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ACADÉMICO -->
+  <section id="academico">
+    <div class="section fade-in">
+      <p class="section-label">Formación & Docencia</p>
+      <h2 class="section-title">Trayectoria Académica</h2>
+
+      <div class="two-col">
+        <div>
+          <h3 style="font-size:1.1rem; margin-bottom:1.2rem; color:var(--muted); letter-spacing:.05em;">Educación</h3>
+          <ul class="timeline">
+            <li>
+              <span class="tl-year">2013</span>
+              <div class="tl-title">Doctor en Epistemología e Historia de la Ciencia</div>
+              <div class="tl-place">Universidad Nacional de Tres de Febrero</div>
+            </li>
+            <li>
+              <span class="tl-year">2001</span>
+              <div class="tl-title">Licenciado en Ciencias de la Computación</div>
+              <div class="tl-place">FCEyN — Universidad de Buenos Aires</div>
+            </li>
+            <li>
+              <span class="tl-year">1999</span>
+              <div class="tl-title">Analista Universitario en Computación</div>
+              <div class="tl-place">FCEyN — Universidad de Buenos Aires</div>
+            </li>
+            <li>
+              <span class="tl-year">2002</span>
+              <div class="tl-title">Postgrado en Docencia Universitaria</div>
+              <div class="tl-place">Facultad de Ciencias Económicas — UBA</div>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 style="font-size:1.1rem; margin-bottom:1.2rem; color:var(--muted); letter-spacing:.05em;">Docencia universitaria</h3>
+          <ul class="timeline">
+            <li>
+              <span class="tl-year">1990 – Actualmente</span>
+              <div class="tl-title">Profesor — Lic. en Ciencias de la Computación</div>
+              <div class="tl-place">Dpto. Computación, FCEyN — UBA</div>
+              <div class="tl-desc">Bases de Datos · POO · Ing. de Software · Análisis de Sistemas · Diseño de Software · Paradigmas de Lenguajes</div>
+            </li>
+            <li>
+              <span class="tl-year">Actualmente</span>
+              <div class="tl-title">Docente — Maestría Explotación de Datos</div>
+              <div class="tl-place">FCEyN / Ingeniería — UBA</div>
+            </li>
+            <li>
+              <span class="tl-year">2002 – 2010</span>
+              <div class="tl-title">Profesor de Inteligencia Artificial</div>
+              <div class="tl-place">Universidad Nacional de Lanús</div>
+            </li>
+            <li>
+              <span class="tl-year">1999 – 2007</span>
+              <div class="tl-title">Profesor — Ingeniería en Sistemas Informáticos</div>
+              <div class="tl-place">Universidad Abierta Interamericana</div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- TAEKWONDO -->
+  <section id="taekwondo">
+    <div class="section fade-in">
+      <p class="section-label">Arte Marcial & Familia</p>
+      <h2 class="section-title">Taekwon-Do ITF</h2>
+
+      <div class="tkd-grid">
+        <div class="tkd-card">
+          <span class="big">VI Dan</span>
+          <h4>Grado & Arbitraje</h4>
+          <p>VI Dan ITF (Placa 104657). Árbitro Internacional Clase A (A-1281 / B-847). Practica Taekwon-Do ITF desde <strong>1975</strong>.</p>
+        </div>
+        <div class="tkd-card">
+          <span class="big">50+</span>
+          <h4>Años de práctica</h4>
+          <p>Una disciplina que moldea vida, familia y valores. Su esposa e hija han conquistado títulos en Copas del Mundo, Campeonatos Mundiales, Panamericanos y Sudamericanos.</p>
+        </div>
+        <div class="tkd-card">
+          <span class="big">100+</span>
+          <h4>Escuela Anjong</h4>
+          <p>Fundador y Director desde 2007. Más de 100 practicantes. Campeones continentales formados en el dojo.<br/>
+            <a href="http://www.anjong.com.ar" target="_blank" style="font-size:.82rem;">www.anjong.com.ar</a><br/>
+            <span style="font-size:.8rem; color:var(--muted);">Gallardo 616, Versailles, CABA</span>
+          </p>
+        </div>
+        <div class="tkd-card">
+          <h4>Comités ITF & FETRA</h4>
+          <p>
+            • Comité de Negocios y Marketing ITF (2019–2027)<br/>
+            • Equipo de Instructores de Arbitraje FETRA (2024–pres.)<br/>
+            • Comité de Umpires FETRA (2019–2021)<br/>
+            • Especialista Sportdata (sistema oficial ITF)
+          </p>
+        </div>
+      </div>
+
+      <!-- Campeonatos -->
+      <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.5rem; margin-bottom:1rem;">Campeonatos internacionales como árbitro</h3>
+
+      <div class="two-col">
+        <div>
+          <table class="champ-table">
+            <thead>
+              <tr>
+                <th>Año</th>
+                <th>Evento</th>
+                <th>Sede</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>2025</td><td>Campeonato Mundial <span class="badge">Mundial</span></td><td>Croacia</td></tr>
+              <tr><td>2024</td><td>Copa del Mundo <span class="badge">Copa</span></td><td>Argentina</td></tr>
+              <tr><td>2023</td><td>Campeonato Mundial <span class="badge">Mundial</span></td><td>Finlandia</td></tr>
+              <tr><td>2022</td><td>Copa del Mundo <span class="badge">Copa</span></td><td>Eslovenia</td></tr>
+              <tr><td>2021</td><td>Campeonato Mundial (Virtual)</td><td>–</td></tr>
+              <tr><td>2020</td><td>Copa del Mundo (Virtual)</td><td>–</td></tr>
+              <tr><td>2019</td><td>Campeonato Mundial <span class="badge">Mundial</span></td><td>Alemania</td></tr>
+              <tr><td>2018</td><td>Copa del Mundo <span class="badge">Copa</span></td><td>Australia</td></tr>
+              <tr><td>2017</td><td>Campeonato Mundial <span class="badge">Mundial</span></td><td>Irlanda</td></tr>
+              <tr><td>2016</td><td>Copa del Mundo <span class="badge">Copa</span></td><td>Hungría</td></tr>
+              <tr><td>2014</td><td>Copa del Mundo <span class="badge">Copa</span></td><td>Jamaica</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div>
+          <table class="champ-table">
+            <thead>
+              <tr>
+                <th>Evento</th>
+                <th>Detalle</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Campeonatos Panamericanos</td><td>Todos desde 2010</td></tr>
+              <tr><td>Campeonatos Centro y Sudamericanos</td><td>Todos desde 2013</td></tr>
+              <tr><td>Torneos Nacionales Argentinos</td><td>Participación ininterrumpida</td></tr>
+              <tr><td>Selectivos Mundiales</td><td>2009, 2011, 2013, 2015, 2017, 2019</td></tr>
+            </tbody>
+          </table>
+
+          <p style="font-size:0.82rem; color:var(--muted); margin-top:1rem;">
+            Se ha desempeñado como Árbitro Central, Juez de Esquina y Presidente de Jurado en eventos de máxima jerarquía ITF.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- PUBLICACIONES -->
+  <section id="publicaciones">
+    <div class="section fade-in">
+      <p class="section-label">Investigación</p>
+      <h2 class="section-title">Publicaciones Científicas</h2>
+
+      <ul class="pub-list">
+        <li>
+          <strong>A Big Data Modeling Methodology for NoSQL Document Databases</strong> — En revisión editorial JOT. Gerardo Rossel, Andrea Manna.
+        </li>
+        <li>
+          <strong>A modeling methodology for NoSQL Key-Value databases</strong> — Database Systems Journal, Vol VIII, Issue 2/2017. ISSN 2069-3230. Gerardo Rossel, Andrea Manna.
+        </li>
+        <li>
+          <strong>Diseño de Bases de Datos Basadas en Documento: Modelo de Interrelación de Documentos</strong> — XIII Workshop Bases de Datos y Minería de Datos. CACIC 2016, San Luis. Rossel, Manna.
+        </li>
+        <li>
+          <strong>Incorporando NoSQL al currículo de Bases de Datos</strong> — TE&amp;ET 2016. Rossel, Manna, Bugni.
+        </li>
+        <li>
+          <strong>Tests Adaptativos utilizando Lógica Difusa</strong> — CACIC 2006. Rossel, Manna.
+        </li>
+        <li>
+          <strong>Usando IRT y Agentes para Educación a Distancia Adaptativa</strong> — TE&amp;ET 2006. Gerardo Rossel.
+        </li>
+        <li>
+          <strong>E-MOBI Smart objects model and implementation</strong> — Journal of Object Technology, vol. 2, no. 6, Nov–Dec 2003. Rossel, Manna.
+        </li>
+        <li>
+          <strong>Diseño por Contratos: Construyendo Software Confiable</strong> — Revista Digital Universitaria UNAM, Oct 2003. Rossel, Manna.
+        </li>
+        <li>
+          <strong>Desarrollando Sistemas MultiAgentes sobre AgentNet</strong> — CACIC 2004. Rossel, Manna.
+        </li>
+        <li>
+          <strong>Algoritmos, Objetos y Estructura de Datos</strong> — Libro. Una introducción a la programación con contratos (2009). Gerardo Rossel – Andrea Manna.
+        </li>
+      </ul>
+
+      <p style="margin-top:2rem; font-size:0.85rem; color:var(--muted);">
+        Miembro del comité de programa de las conferencias internacionales SKIMA 2006–2009, WSC 2004–2012, e IEEE CSIDC 2004.
+        Miembro IEEE (Nº 41378871) y del IEEE Technical Council on Software Engineering.
+      </p>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto">
+    <div class="section fade-in">
+      <p class="section-label">Contacto</p>
+      <h2 class="section-title">Ponerse en contacto</h2>
+
+      <div class="contact-grid">
+        <div class="contact-item">
+          <h4>Email</h4>
+          <a href="mailto:gerardo.rossel@gmail.com">gerardo.rossel@gmail.com</a>
+        </div>
+        <div class="contact-item">
+          <h4>Teléfono</h4>
+          <p>054-11-44236439</p>
+        </div>
+        <div class="contact-item">
+          <h4>Web personal</h4>
+          <a href="http://www.gerardorossel.org/" target="_blank">gerardorossel.org</a>
+        </div>
+        <div class="contact-item">
+          <h4>Instagram</h4>
+          <a href="https://www.instagram.com/gerardo.rossel" target="_blank">@gerardo.rossel</a>
+        </div>
+        <div class="contact-item">
+          <h4>Escuela Anjong</h4>
+          <a href="http://www.anjong.com.ar" target="_blank">anjong.com.ar</a><br/>
+          <p style="font-size:.82rem; margin-top:.2rem;">Gallardo 616, Versailles, CABA</p>
+        </div>
+        <div class="contact-item">
+          <h4>Ubicación</h4>
+          <p>CABA, Argentina</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © <span id="yr"></span> Gerardo Rossel Catardo — PhD · Data Science · Taekwon-Do ITF
+  </footer>
+
+  <script>
+    // Year
+    document.getElementById('yr').textContent = new Date().getFullYear();
+
+    // Fade-in on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
