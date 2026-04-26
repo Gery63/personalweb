@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -128,7 +128,6 @@
     .hero-photo img {
       width: 100%;
       display: block;
-      /* The photo already has transparent bg */
       filter: drop-shadow(4px 8px 20px rgba(0,0,0,0.18));
     }
 
@@ -236,7 +235,6 @@
 
     /* ── TAEKWONDO ──────────────────────────────────────────── */
     #taekwondo { background: var(--cream); }
-    #taekwondo .section { /* inherits max-width */ }
 
     .tkd-grid {
       display: grid;
@@ -343,9 +341,9 @@
     }
 
     /* ── CONTACT ────────────────────────────────────────────── */
-    #contacto { background: var(--ink); color: var(--paper); }
-    #contacto .section-label { color: var(--gold); }
-    #contacto .section-title { color: #fff; }
+    #contact { background: var(--ink); color: var(--paper); }
+    #contact .section-label { color: var(--gold); }
+    #contact .section-title { color: #fff; }
 
     .contact-grid {
       display: grid;
@@ -392,7 +390,7 @@
 
     /* ── RESPONSIVE ─────────────────────────────────────────── */
     @media(max-width:750px){
-      #hero {
+      #about {
         grid-template-columns: 1fr;
         padding-top: 3rem;
       }
@@ -405,36 +403,36 @@
 
   <!-- NAV -->
   <nav>
-    <a href="#sobre-mi">Sobre mí</a>
-    <a href="#experiencia">Experiencia</a>
-    <a href="#academico">Académico</a>
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#academic">Academic</a>
     <a href="#taekwondo">Taekwon-Do</a>
-    <a href="#publicaciones">Publicaciones</a>
-    <a href="#contacto">Contacto</a>
-    <a href="index_en.html" style="margin-left:1.5rem; color:#fff; border:1px solid var(--rule); padding:0.15rem 0.6rem; border-radius:2px; letter-spacing:.08em;">🌐 EN</a>
+    <a href="#publications">Publications</a>
+    <a href="#contact">Contact</a>
+    <a href="index.html" style="margin-left:1.5rem; color:#fff; border:1px solid var(--rule); padding:0.15rem 0.6rem; border-radius:2px; letter-spacing:.08em;">🌐 ES</a>
   </nav>
 
   <!-- HERO -->
-  <section id="sobre-mi">
-    <div id="hero">
+  <section id="about">
+    <div id="hero" style="display:grid; grid-template-columns:1fr auto; align-items:end; gap:3rem; max-width:1100px; margin:0 auto; padding:5rem 2rem 3rem;">
       <div class="hero-text fade-in">
-        <p class="section-label">PhD · Data Scientist · Ingeniero de Software · Epistemologo · Instructor Internacional ITF</p>
+        <p class="section-label">PhD · Data Scientist · Software Engineer · Epistemologist · ITF International Instructor</p>
         <h1>Gerardo<br/><span>Rossel</span></h1>
-        <p class="hero-tagline">"Nada humano me es ajeno."</p>
+        <p class="hero-tagline">"Nothing human is foreign to me."</p>
 
         <div class="hero-pills">
           <span class="pill red">VI Dan ITF</span>
-          <span class="pill">Ciencia de Datos</span>
-          <span class="pill">Inteligencia Artificial</span>
-          <span class="pill">Bases de Datos</span>
-          <span class="pill">Ingeniería de Software</span>
-          <span class="pill">Marketing Digital</span>
+          <span class="pill">Data Science</span>
+          <span class="pill">Artificial Intelligence</span>
+          <span class="pill">Databases</span>
+          <span class="pill">Software Engineering</span>
+          <span class="pill">Digital Marketing</span>
         </div>
 
         <p style="font-size:0.95rem; color:var(--muted); max-width:540px; margin-bottom:1.2rem;">
-          Doctor en Epistemología e Historia de la Ciencia y Licenciado en Ciencias de la Computación
-          (UBA). Más de tres décadas combinando tecnología, investigación académica y una pasión
-          inquebrantable por el Taekwon-Do ITF, que practica desde 1975 junto a toda su familia.
+          PhD in Epistemology and History of Science and Bachelor's in Computer Science (UBA).
+          Over three decades combining technology, academic research, and an unwavering passion
+          for ITF Taekwon-Do, which he has practiced since 1975 alongside his entire family.
         </p>
 
         <div class="hero-contact">
@@ -444,10 +442,6 @@
       </div>
 
       <div class="hero-photo fade-in" style="transition-delay:.15s">
-        <!-- 
-          FOTO: coloca el archivo GRossel2.png en la misma carpeta que este index.html
-          Si usás GitHub Pages, simplemente subí ambos archivos al repo.
-        -->
         <img src="GRossel2.png" alt="Gerardo Rossel" />
       </div>
     </div>
@@ -455,49 +449,49 @@
 
   <hr class="divider" />
 
-  <!-- EXPERIENCIA -->
-  <section id="experiencia">
+  <!-- EXPERIENCE -->
+  <section id="experience">
     <div class="section fade-in">
-      <p class="section-label">Trayectoria</p>
-      <h2 class="section-title">Experiencia Profesional</h2>
+      <p class="section-label">Career</p>
+      <h2 class="section-title">Professional Experience</h2>
 
       <div class="two-col">
         <div>
           <ul class="timeline">
             <li>
-              <span class="tl-year">1992 – Actualmente</span>
-              <div class="tl-title">CEO — UpperSoft Ingeniería de Software</div>
+              <span class="tl-year">1992 – Present</span>
+              <div class="tl-title">CEO — UpperSoft Software Engineering</div>
               <div class="tl-place">Martínez, Buenos Aires</div>
-              <div class="tl-desc">Dirección de proyectos de alta complejidad, consultoría tecnológica, implementación de nuevas arquitecturas y metodologías.</div>
+              <div class="tl-desc">Management of high-complexity projects, technology consulting, and implementation of new architectures and methodologies.</div>
             </li>
             <li>
               <span class="tl-year">2020 – 2023</span>
-              <div class="tl-title">Director de TIC (CIO)</div>
-              <div class="tl-place">Ministerio de Agricultura, Ganadería y Pesca — Argentina</div>
-              <div class="tl-desc">Liderazgo integral de la infraestructura tecnológica y equipos de desarrollo a nivel nacional.</div>
+              <div class="tl-title">Director of ICT (CIO)</div>
+              <div class="tl-place">Ministry of Agriculture, Livestock and Fisheries — Argentina</div>
+              <div class="tl-desc">Full leadership of the national technology infrastructure and development teams.</div>
             </li>
             <li>
               <span class="tl-year">2024</span>
-              <div class="tl-title">Asesor de Gabinete</div>
-              <div class="tl-place">Secretaría de Mercados Agropecuarios — Ministerio de Economía</div>
-              <div class="tl-desc">Asesoramiento en políticas económicas y estrategia de datos.</div>
+              <div class="tl-title">Cabinet Advisor</div>
+              <div class="tl-place">Secretariat of Agricultural Markets — Ministry of Economy</div>
+              <div class="tl-desc">Advisory on economic policy and data strategy.</div>
             </li>
             <li>
-              <span class="tl-year">2017 – Actualmente</span>
-              <div class="tl-title">Consultor Profesional Independiente</div>
+              <span class="tl-year">2017 – Present</span>
+              <div class="tl-title">Independent Professional Consultant</div>
               <div class="tl-place">Unipase S.A. — Vicente López, Bs.As.</div>
-              <div class="tl-desc">Auditoría sobre datos, interoperatividad con autopistas, inteligencia de datos y desarrollo de software de administración de dispositivos.</div>
+              <div class="tl-desc">Data auditing, tollway interoperability, data intelligence, and device management software development.</div>
             </li>
             <li>
               <span class="tl-year">2016 – 2017</span>
-              <div class="tl-title">Consultor — Desarrollo de Software</div>
-              <div class="tl-place">Fundación Sadosky (I+D en TIC) — CABA</div>
+              <div class="tl-title">Consultant — Software Development</div>
+              <div class="tl-place">Fundación Sadosky (R&D in ICT) — CABA</div>
             </li>
           </ul>
         </div>
 
         <div>
-          <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.3rem; margin-bottom:1rem; color:var(--muted);">Algunos clientes</h3>
+          <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.3rem; margin-bottom:1rem; color:var(--muted);">Selected Clients</h3>
           <div class="client-strip">
             <span class="client-tag">Bank of America</span>
             <span class="client-tag">L'Oréal</span>
@@ -511,7 +505,7 @@
           </div>
 
           <blockquote style="margin-top:2.5rem;">
-            La tecnología y el arte marcial comparten una misma raíz: la disciplina de perfeccionar cada detalle.
+            Technology and martial arts share the same root: the discipline of perfecting every detail.
           </blockquote>
         </div>
       </div>
@@ -520,62 +514,62 @@
 
   <hr class="divider" />
 
-  <!-- ACADÉMICO -->
-  <section id="academico">
+  <!-- ACADEMIC -->
+  <section id="academic">
     <div class="section fade-in">
-      <p class="section-label">Formación & Docencia</p>
-      <h2 class="section-title">Trayectoria Académica</h2>
+      <p class="section-label">Education & Teaching</p>
+      <h2 class="section-title">Academic Background</h2>
 
       <div class="two-col">
         <div>
-          <h3 style="font-size:1.1rem; margin-bottom:1.2rem; color:var(--muted); letter-spacing:.05em;">Educación</h3>
+          <h3 style="font-size:1.1rem; margin-bottom:1.2rem; color:var(--muted); letter-spacing:.05em;">Education</h3>
           <ul class="timeline">
             <li>
               <span class="tl-year">2013</span>
-              <div class="tl-title">Doctor en Epistemología e Historia de la Ciencia</div>
+              <div class="tl-title">PhD in Epistemology and History of Science</div>
               <div class="tl-place">Universidad Nacional de Tres de Febrero</div>
             </li>
             <li>
               <span class="tl-year">2001</span>
-              <div class="tl-title">Licenciado en Ciencias de la Computación</div>
+              <div class="tl-title">Bachelor's in Computer Science</div>
               <div class="tl-place">FCEyN — Universidad de Buenos Aires</div>
             </li>
             <li>
               <span class="tl-year">1999</span>
-              <div class="tl-title">Analista Universitario en Computación</div>
+              <div class="tl-title">Associate's in Computer Science</div>
               <div class="tl-place">FCEyN — Universidad de Buenos Aires</div>
             </li>
             <li>
               <span class="tl-year">2002</span>
-              <div class="tl-title">Postgrado en Docencia Universitaria</div>
-              <div class="tl-place">Facultad de Ciencias Económicas — UBA</div>
+              <div class="tl-title">Postgraduate in University Teaching</div>
+              <div class="tl-place">Faculty of Economic Sciences — UBA</div>
             </li>
           </ul>
         </div>
 
         <div>
-          <h3 style="font-size:1.1rem; margin-bottom:1.2rem; color:var(--muted); letter-spacing:.05em;">Docencia universitaria</h3>
+          <h3 style="font-size:1.1rem; margin-bottom:1.2rem; color:var(--muted); letter-spacing:.05em;">University Teaching</h3>
           <ul class="timeline">
             <li>
-              <span class="tl-year">1990 – Actualmente</span>
-              <div class="tl-title">Profesor — Lic. en Ciencias de la Computación</div>
-              <div class="tl-place">Dpto. Computación, FCEyN — UBA</div>
-              <div class="tl-desc">Bases de Datos · POO · Ing. de Software · Análisis de Sistemas · Diseño de Software · Paradigmas de Lenguajes</div>
+              <span class="tl-year">1990 – Present</span>
+              <div class="tl-title">Professor — B.Sc. in Computer Science</div>
+              <div class="tl-place">Dept. of Computer Science, FCEyN — UBA</div>
+              <div class="tl-desc">Databases · OOP · Software Engineering · Systems Analysis · Software Design · Programming Paradigms</div>
             </li>
             <li>
-              <span class="tl-year">Actualmente</span>
-              <div class="tl-title">Docente — Maestría Explotación de Datos</div>
-              <div class="tl-place">FCEyN / Ingeniería — UBA</div>
-                  <div class="tl-desc">Modelos Relacionales en Ciencia de Datos  - Pensamiento Crítico</div>
+              <span class="tl-year">Present</span>
+              <div class="tl-title">Lecturer — Master's in Data Mining</div>
+              <div class="tl-place">FCEyN / Engineering — UBA</div>
+              <div class="tl-desc">Relational Models in Data Science · Critical Thinking</div>
             </li>
             <li>
               <span class="tl-year">2002 – 2010</span>
-              <div class="tl-title">Profesor de Inteligencia Artificial</div>
+              <div class="tl-title">Professor of Artificial Intelligence</div>
               <div class="tl-place">Universidad Nacional de Lanús</div>
             </li>
             <li>
               <span class="tl-year">1999 – 2007</span>
-              <div class="tl-title">Profesor — Ingeniería en Sistemas Informáticos</div>
+              <div class="tl-title">Professor — Systems Engineering</div>
               <div class="tl-place">Universidad Abierta Interamericana</div>
             </li>
           </ul>
@@ -589,64 +583,64 @@
   <!-- TAEKWONDO -->
   <section id="taekwondo">
     <div class="section fade-in">
-      <p class="section-label">Arte Marcial & Familia</p>
+      <p class="section-label">Martial Art & Family</p>
       <h2 class="section-title">Taekwon-Do ITF</h2>
 
       <div class="tkd-grid">
         <div class="tkd-card">
           <span class="big">VI Dan</span>
-          <h4>Grado & Arbitraje</h4>
-          <p>VI Dan ITF (Placa 104657). Árbitro Internacional Clase A (A-1281 / B-847). Practica Taekwon-Do ITF desde <strong>1975</strong>.</p>
+          <h4>Rank & Refereeing</h4>
+          <p>VI Dan ITF (Badge 104657). International Class A Referee (A-1281 / B-847). Practicing ITF Taekwon-Do since <strong>1975</strong>.</p>
         </div>
         <div class="tkd-card">
           <span class="big">50+</span>
-          <h4>Años de práctica</h4>
-          <p>Una disciplina que moldea vida, familia y valores. Su esposa e hija han conquistado títulos en Copas del Mundo, Campeonatos Mundiales, Panamericanos y Sudamericanos.</p>
+          <h4>Years of Practice</h4>
+          <p>A discipline that shapes life, family and values. His wife and daughter have won titles at World Cups, World Championships, Pan-American and South American Championships.</p>
         </div>
         <div class="tkd-card">
           <span class="big">100+</span>
-          <h4>Escuela Anjong</h4>
-          <p>Fundador y Director desde 2007. Más de 100 practicantes. Campeones continentales formados en el dojo.<br/>
+          <h4>Anjong School</h4>
+          <p>Founder and Director since 2007. Over 100 practitioners. Continental champions trained in the dojo.<br/>
             <a href="http://www.anjong.com.ar" target="_blank" style="font-size:.82rem;">www.anjong.com.ar</a><br/>
             <span style="font-size:.8rem; color:var(--muted);">Gallardo 616, Versailles, CABA</span>
           </p>
         </div>
         <div class="tkd-card">
-          <h4>Comités ITF & FETRA</h4>
+          <h4>ITF & FETRA Committees</h4>
           <p>
-            • Comité de Negocios y Marketing ITF (2019–2027)<br/>
-            • Equipo de Instructores de Arbitraje FETRA (2024–2025.)<br/>
-            • Comité de Umpires FETRA (2019–2021 y 2025-presnte)<br/>
-            • Especialista Sportdata (sistema oficial ITF)
+            • ITF Business and Marketing Committee (2019–2027)<br/>
+            • FETRA Refereeing Instructors Team (2024–2025)<br/>
+            • FETRA Umpires Committee (2019–2021 and 2025–present)<br/>
+            • Sportdata Specialist (official ITF system)
           </p>
         </div>
       </div>
 
-      <!-- Campeonatos -->
-      <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.5rem; margin-bottom:1rem;">Campeonatos internacionales como árbitro</h3>
+      <!-- Championships -->
+      <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.5rem; margin-bottom:1rem;">International Championships as Referee</h3>
 
       <div class="two-col">
         <div>
           <table class="champ-table">
             <thead>
               <tr>
-                <th>Año</th>
-                <th>Evento</th>
-                <th>Sede</th>
+                <th>Year</th>
+                <th>Event</th>
+                <th>Location</th>
               </tr>
             </thead>
             <tbody>
-              <tr><td>2025</td><td>Campeonato Mundial <span class="badge">Mundial</span></td><td>Croacia</td></tr>
-              <tr><td>2024</td><td>Copa del Mundo <span class="badge">Copa</span></td><td>Argentina</td></tr>
-              <tr><td>2023</td><td>Campeonato Mundial <span class="badge">Mundial</span></td><td>Finlandia</td></tr>
-              <tr><td>2022</td><td>Copa del Mundo <span class="badge">Copa</span></td><td>Eslovenia</td></tr>
-              <tr><td>2021</td><td>Campeonato Mundial (Virtual)</td><td>–</td></tr>
-              <tr><td>2020</td><td>Copa del Mundo (Virtual)</td><td>–</td></tr>
-              <tr><td>2019</td><td>Campeonato Mundial <span class="badge">Mundial</span></td><td>Alemania</td></tr>
-              <tr><td>2018</td><td>Copa del Mundo <span class="badge">Copa</span></td><td>Australia</td></tr>
-              <tr><td>2017</td><td>Campeonato Mundial <span class="badge">Mundial</span></td><td>Irlanda</td></tr>
-              <tr><td>2016</td><td>Copa del Mundo <span class="badge">Copa</span></td><td>Hungría</td></tr>
-              <tr><td>2014</td><td>Copa del Mundo <span class="badge">Copa</span></td><td>Jamaica</td></tr>
+              <tr><td>2025</td><td>World Championship <span class="badge">World</span></td><td>Croatia</td></tr>
+              <tr><td>2024</td><td>World Cup <span class="badge">Cup</span></td><td>Argentina</td></tr>
+              <tr><td>2023</td><td>World Championship <span class="badge">World</span></td><td>Finland</td></tr>
+              <tr><td>2022</td><td>World Cup <span class="badge">Cup</span></td><td>Slovenia</td></tr>
+              <tr><td>2021</td><td>World Championship (Virtual)</td><td>–</td></tr>
+              <tr><td>2020</td><td>World Cup (Virtual)</td><td>–</td></tr>
+              <tr><td>2019</td><td>World Championship <span class="badge">World</span></td><td>Germany</td></tr>
+              <tr><td>2018</td><td>World Cup <span class="badge">Cup</span></td><td>Australia</td></tr>
+              <tr><td>2017</td><td>World Championship <span class="badge">World</span></td><td>Ireland</td></tr>
+              <tr><td>2016</td><td>World Cup <span class="badge">Cup</span></td><td>Hungary</td></tr>
+              <tr><td>2014</td><td>World Cup <span class="badge">Cup</span></td><td>Jamaica</td></tr>
             </tbody>
           </table>
         </div>
@@ -655,20 +649,20 @@
           <table class="champ-table">
             <thead>
               <tr>
-                <th>Evento</th>
-                <th>Detalle</th>
+                <th>Event</th>
+                <th>Details</th>
               </tr>
             </thead>
             <tbody>
-              <tr><td>Campeonatos Panamericanos</td><td>Todos desde 2010</td></tr>
-              <tr><td>Campeonatos Centro y Sudamericanos</td><td>Todos desde 2013</td></tr>
-              <tr><td>Torneos Nacionales Argentinos</td><td>Participación ininterrumpida</td></tr>
-              <tr><td>Selectivos Mundiales</td><td>2009, 2011, 2013, 2015, 2017, 2019, 2021,2023</td></tr>
+              <tr><td>Pan-American Championships</td><td>All editions since 2010</td></tr>
+              <tr><td>Central & South American Championships</td><td>All editions since 2013</td></tr>
+              <tr><td>Argentine National Tournaments</td><td>Continuous participation</td></tr>
+              <tr><td>World Selection Events</td><td>2009, 2011, 2013, 2015, 2017, 2019, 2021, 2023</td></tr>
             </tbody>
           </table>
 
           <p style="font-size:0.82rem; color:var(--muted); margin-top:1rem;">
-            Se ha desempeñado como Árbitro Central, Juez de Esquina y Presidente de Jurado en eventos de máxima jerarquía ITF.
+            Has served as Center Referee, Corner Judge and Jury President at the highest-level ITF events.
           </p>
         </div>
       </div>
@@ -677,15 +671,16 @@
 
   <hr class="divider" />
 
-  <!-- PUBLICACIONES -->
-  <section id="publicaciones">
+  <!-- PUBLICATIONS -->
+  <section id="publications">
     <div class="section fade-in">
-      <p class="section-label">Investigación</p>
-      <h2 class="section-title">Publicaciones Científicas</h2>
+      <p class="section-label">Research</p>
+      <h2 class="section-title">Scientific Publications</h2>
 
       <ul class="pub-list">
-         <li>
-          <strong>Interdisciplinary Complexity and Theoretical Necessity in Data Science</strong> — International Conference on Philosophy of Computing 2025. UNAM Mexico City. Mexico. Gerardo Rossel        </li>
+        <li>
+          <strong>Interdisciplinary Complexity and Theoretical Necessity in Data Science</strong> — International Conference on Philosophy of Computing 2025. UNAM Mexico City. Mexico. Gerardo Rossel
+        </li>
         <li>
           <strong>A Big Data Modeling Methodology for NoSQL Document Databases</strong> — Database Systems Journal, Vol XI, 2020. ISSN 2069 - 3230. Gerardo Rossel, Andrea Manna
         </li>
@@ -693,43 +688,43 @@
           <strong>A modeling methodology for NoSQL Key-Value databases</strong> — Database Systems Journal, Vol VIII, Issue 2/2017. ISSN 2069-3230. Gerardo Rossel, Andrea Manna.
         </li>
         <li>
-          <strong>Diseño de Bases de Datos Basadas en Documento: Modelo de Interrelación de Documentos</strong> — XIII Workshop Bases de Datos y Minería de Datos. CACIC 2016, San Luis. Rossel, Manna.
+          <strong>Diseño de Bases de Datos Basadas en Documento: Modelo de Interrelación de Documentos</strong> — XIII Workshop on Databases and Data Mining. CACIC 2016, San Luis. Rossel, Manna.
         </li>
         <li>
-          <strong>Incorporando NoSQL al currículo de Bases de Datos</strong> — TE&amp;ET 2016. Rossel, Manna, Bugni.
+          <strong>Incorporating NoSQL into the Database Curriculum</strong> — TE&amp;ET 2016. Rossel, Manna, Bugni.
         </li>
         <li>
-          <strong>Tests Adaptativos utilizando Lógica Difusa</strong> — CACIC 2006. Rossel, Manna.
+          <strong>Adaptive Tests Using Fuzzy Logic</strong> — CACIC 2006. Rossel, Manna.
         </li>
         <li>
-          <strong>Usando IRT y Agentes para Educación a Distancia Adaptativa</strong> — TE&amp;ET 2006. Gerardo Rossel.
+          <strong>Using IRT and Agents for Adaptive Distance Education</strong> — TE&amp;ET 2006. Gerardo Rossel.
         </li>
         <li>
           <strong>E-MOBI Smart objects model and implementation</strong> — Journal of Object Technology, vol. 2, no. 6, Nov–Dec 2003. Rossel, Manna.
         </li>
         <li>
-          <strong>Diseño por Contratos: Construyendo Software Confiable</strong> — Revista Digital Universitaria UNAM, Oct 2003. Rossel, Manna.
+          <strong>Design by Contract: Building Reliable Software</strong> — Revista Digital Universitaria UNAM, Oct 2003. Rossel, Manna.
         </li>
         <li>
-          <strong>Desarrollando Sistemas MultiAgentes sobre AgentNet</strong> — CACIC 2004. Rossel, Manna.
+          <strong>Developing Multi-Agent Systems on AgentNet</strong> — CACIC 2004. Rossel, Manna.
         </li>
         <li>
-          <strong>Algoritmos, Objetos y Estructura de Datos</strong> — Libro. Una introducción a la programación con contratos (2009). Gerardo Rossel – Andrea Manna.
+          <strong>Algorithms, Objects and Data Structures</strong> — Book. An introduction to programming with contracts (2009). Gerardo Rossel – Andrea Manna.
         </li>
       </ul>
 
       <p style="margin-top:2rem; font-size:0.85rem; color:var(--muted);">
-        Miembro del comité de programa de las conferencias internacionales SKIMA 2006–2009, WSC 2004–2012, e IEEE CSIDC 2004.
-        Miembro IEEE (Nº 41378871) y del IEEE Technical Council on Software Engineering.
+        Program committee member of international conferences SKIMA 2006–2009, WSC 2004–2012, and IEEE CSIDC 2004.
+        IEEE Member (No. 41378871) and member of the IEEE Technical Council on Software Engineering.
       </p>
     </div>
   </section>
 
-  <!-- CONTACTO -->
-  <section id="contacto">
+  <!-- CONTACT -->
+  <section id="contact">
     <div class="section fade-in">
-      <p class="section-label">Contacto</p>
-      <h2 class="section-title">Ponerse en contacto</h2>
+      <p class="section-label">Contact</p>
+      <h2 class="section-title">Get in Touch</h2>
 
       <div class="contact-grid">
         <div class="contact-item">
@@ -741,7 +736,7 @@
           <a href="https://www.instagram.com/gerardo.rossel" target="_blank">@gerardo.rossel</a>
         </div>
         <div class="contact-item">
-          <h4>Escuela Anjong</h4>
+          <h4>Anjong School</h4>
           <a href="http://www.anjong.com.ar" target="_blank">anjong.com.ar</a><br/>
           <p style="font-size:.82rem; margin-top:.2rem;">Gallardo 616, Versailles, CABA</p>
         </div>
@@ -750,7 +745,7 @@
           <a href="http://www.uppersoft.com.ar" target="_blank">uppersoft.com.ar</a>
         </div>
         <div class="contact-item">
-          <h4>Ubicación</h4>
+          <h4>Location</h4>
           <p>CABA, Argentina</p>
         </div>
       </div>
@@ -762,10 +757,8 @@
   </footer>
 
   <script>
-    // Year
     document.getElementById('yr').textContent = new Date().getFullYear();
 
-    // Fade-in on scroll
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => {
         if (e.isIntersecting) {
